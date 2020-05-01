@@ -1,9 +1,6 @@
 import 'package:quizapp/screens/game_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quizapp/screens/easy_screen.dart';
-import 'package:quizapp/screens/medium_screen.dart';
-import 'package:quizapp/screens/hard_screen.dart';
 
 class homescreen extends StatelessWidget {
   @override
@@ -76,7 +73,11 @@ class homescreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => MainScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => MainScreen(
+                                url:
+                                    "https://opentdb.com/api.php?amount=30&type=multiple"),
+                          ),
                         );
                       },
                     ),
@@ -229,7 +230,10 @@ showAlertDialog(BuildContext context) {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MainScreen_e()),
+          MaterialPageRoute(
+              builder: (context) => MainScreen(
+                  url:
+                      "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")),
         );
       });
   Widget mediumButton = FlatButton(
@@ -243,7 +247,10 @@ showAlertDialog(BuildContext context) {
     onPressed: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MainScreen_m()),
+        MaterialPageRoute(
+            builder: (context) => MainScreen(
+                url:
+                    "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple")),
       );
     },
   );
@@ -258,7 +265,10 @@ showAlertDialog(BuildContext context) {
     onPressed: () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => MainScreen_h()),
+        MaterialPageRoute(
+            builder: (context) => MainScreen(
+                url:
+                    "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple")),
       );
     },
   );

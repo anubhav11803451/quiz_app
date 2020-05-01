@@ -4,22 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:quizapp/model/quiz.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-class MainScreen extends StatefulWidget {
-  MainScreen({Key key}) : super(key: key);
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  final String url_h = "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
-  final String url_m = "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
-  final String url_e = "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
-  final String url = "https://opentdb.com/api.php?amount=30&type=multiple";
+class MainScreen extends StatelessWidget {
+//  final String url_h = "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
+//  final String url_m = "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
+//  final String url_e = "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
+  final String url;
+  MainScreen({this.url});
   Quiz quiz;
   List<Results> results;
+
   @override
   Widget build(BuildContext context) {
     Future<void> fetchQuestions() async {
@@ -35,11 +29,10 @@ class _MainScreenState extends State<MainScreen> {
         title: Text(
           "Triva",
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 25.0,
-            fontFamily: "BalooBhaina2",
-            fontWeight: FontWeight.bold
-          ),
+              color: Colors.white,
+              fontSize: 25.0,
+              fontFamily: "BalooBhaina2",
+              fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -65,7 +58,10 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: new FloatingActionButton(
         onPressed: () {},
         tooltip: 'Tips',
-        child: new Icon(Icons.lightbulb_outline, color: Colors.yellow,),
+        child: new Icon(
+          Icons.lightbulb_outline,
+          color: Colors.yellow,
+        ),
         backgroundColor: Colors.black54,
       ),
       backgroundColor: Color(0xff2b2b2d),
@@ -79,18 +75,25 @@ class _MainScreenState extends State<MainScreen> {
         return Card(
           elevation: 2,
           color: Color(0xffb4b4b6),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           child: ExpansionTile(
-            leading: Icon(Icons.question_answer, size: 30, color: Color(0xff2c2c2e),),
+            leading: Icon(
+              Icons.question_answer,
+              size: 30,
+              color: Color(0xff2c2c2e),
+            ),
             title: ListTile(
               title: Text(
                 results[index].question,
-                style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "BalooBhaina2",
-                color: Colors.black),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "BalooBhaina2",
+                    color: Colors.black),
               ),
-              subtitle: Text(
-                results[index].category,
-                style: TextStyle(fontStyle: FontStyle.italic, fontFamily: "BalooBhaina2")),
+              subtitle: Text(results[index].category,
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontFamily: "BalooBhaina2")),
             ),
             children: results[index].allAnswers.map((option) {
               return AnswerWidget(results, index, option);
@@ -130,9 +133,7 @@ class _AnswerWidgetState extends State<AnswerWidget> {
       title: Text(
         widget.option,
         textAlign: TextAlign.center,
-        style: TextStyle(
-            color: tick,
-            fontFamily: "BalooBhaina2"),
+        style: TextStyle(color: tick, fontFamily: "BalooBhaina2"),
       ),
     );
   }

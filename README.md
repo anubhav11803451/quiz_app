@@ -1,6 +1,6 @@
 # Quiz_App
 
-A new Flutter application.
+A triva application.
 
 ## Getting Started
 

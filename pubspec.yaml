@@ -19,10 +19,10 @@ environment:
 dependencies:
   fab_circular_menu: ^1.0.0
   http: ^0.12.0+4
-  splashscreen: ^1.2.0
   intro_slider: ^2.2.9
   font_awesome_flutter: ^8.8.1
-  google_fonts: ^1.0.0
+  google_fonts:
+  splashscreen: ^1.2.0
 
   flutter:
     sdk: flutter

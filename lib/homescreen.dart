@@ -16,7 +16,7 @@ class homescreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xffb3b3b3),
+        backgroundColor: Color(0xff474747),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       body: Stack(

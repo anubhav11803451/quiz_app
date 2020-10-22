@@ -30,15 +30,16 @@ class Results {
   String difficulty;
   String question;
   String correctAnswer;
-  List<String> allAnswers;
+  List<String> allAnswers; // lets declare a list of allAnswer string
 
-  Results(
-      {this.category,
-        this.type,
-        this.difficulty,
-        this.question,
-        this.correctAnswer,
-        this.allAnswers});
+  Results({
+    this.category,
+    this.type,
+    this.difficulty,
+    this.question,
+    this.correctAnswer,
+    this.allAnswers,
+  });
 
   Results.fromJson(Map<String, dynamic> json) {
     category = json['category'];
@@ -46,9 +47,11 @@ class Results {
     difficulty = json['difficulty'];
     question = json['question'];
     correctAnswer = json['correct_answer'];
-    allAnswers = json['incorrect_answers'].cast<String>();
-    allAnswers.add(correctAnswer);
-    allAnswers.shuffle();
+    allAnswers = json['incorrect_answers']
+        .cast<String>(); // then store the incorrectanswer in it.
+    allAnswers.add(
+        correctAnswer); // and append the correct answer to have all answer at one place
+    allAnswers.shuffle(); // then shuffle it.
   }
 
   Map<String, dynamic> toJson() {
@@ -58,7 +61,8 @@ class Results {
     data['difficulty'] = this.difficulty;
     data['question'] = this.question;
     data['correct_answer'] = this.correctAnswer;
-    data['incorrect_answers'] = this.allAnswers;
+    data['incorrect_answers'] =
+        this.allAnswers; // here we will map the same to the json data.
     return data;
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:quizapp/model/quiz.dart';
 
-
 class MainScreen extends StatelessWidget {
 //  final String url_h = "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
 //  final String url_m = "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
@@ -34,7 +33,7 @@ class MainScreen extends StatelessWidget {
               fontFamily: "BalooBhaina2",
               fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
       body: RefreshIndicator(
